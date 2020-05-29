@@ -1,0 +1,19 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: my-ingress
+  namespace: ingress-basic
+#  annotations:
+#    kubernetes.io/ingress.class: "gce"
+spec:
+  rules:
+  - http:
+      paths:
+      - path: /weather
+        backend:
+          serviceName: weather-app
+          servicePort: 8080
+      - path: /cityguide
+        backend:
+          serviceName: cityguide-app
+          servicePort: 3000
